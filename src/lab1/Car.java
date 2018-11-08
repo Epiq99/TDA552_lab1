@@ -167,20 +167,37 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * @return
+     * Returns the current speed of this car.
+     *
+     * @return a double representing the current speed of this car.
      */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
 
+    /**
+     * Returns the number of doors on this car.
+     *
+     * @return an int representing the number of doors on this car.
+     */
     public int getNumberOfDoors() {
         return nDoors;
     }
 
+    /**
+     * Returns the model name of this car.
+     *
+     * @return a String representing the model name of this car.
+     */
     public String getModelName() {
         return modelName;
     }
 
+    /**
+     * Returns the color of this car.
+     *
+     * @return a <code>Color</code> representing the color of the car.
+     */
     public Color getColor() {
         return color;
     }
