@@ -1,7 +1,12 @@
 package lab1;
 
-import java.awt.*;
+import java.awt.Color;
 
+/**
+ * A class that extends <code>Car</code>, that represents a Saab 95.
+ *
+ * @see Car
+ */
 public class Saab95 extends Car {
 
     private boolean turboOn;
@@ -12,14 +17,23 @@ public class Saab95 extends Car {
         turboOn = false;
     }
 
+    /**
+     * Activates the turbo of this car.
+     */
     public void setTurboOn() {
         turboOn = true;
     }
 
+    /**
+     * Deactivates the turbo of this car.
+     */
     public void setTurboOff() {
         turboOn = false;
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     public double getSpeedFactor() {
         double turbo = 1;
