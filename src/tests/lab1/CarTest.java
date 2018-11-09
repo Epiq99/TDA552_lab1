@@ -15,11 +15,6 @@ public class CarTest {
     }
 
     @Test
-    public void getSpeedFactor() {
-
-    }
-
-    @Test
     public void move() {
         Car car = new Saab95();
 
@@ -131,23 +126,10 @@ public class CarTest {
     }
 
     @Test
-    public void getEnginePower() {
-
-    }
-
-    @Test
     public void getCurrentSpeed() {
         Car car = new Volvo240();
         car.startEngine(); //sets the speed to Car.DEFAULT_SPEED
         assertEquals(0, Double.compare(Car.DEFAULT_SPEED, car.getCurrentSpeed()));
-    }
-
-    @Test
-    public void getNumberOfDoors() {
-    }
-
-    @Test
-    public void getModelName() {
     }
 
     @Test
