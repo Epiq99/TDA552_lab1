@@ -31,44 +31,48 @@ public class CarTest {
     @Test
     public void turnRight() {
         Car car = new Volvo240();
-        Direction before = car.getDirection();
-        car.turnRight();
-        Direction after = car.getDirection();
-        switch (before) {
-            case RIGHT:
-                assertEquals(Direction.DOWN, after);
-                break;
-            case LEFT:
-                assertEquals(Direction.UP, after);
-                break;
-            case UP:
-                assertEquals(Direction.RIGHT, after);
-                break;
-            case DOWN:
-                assertEquals(Direction.LEFT, after);
-                break;
+        for (int i = 0; i < Direction.values().length; i++) {
+            Direction before = car.getDirection();
+            car.turnRight();
+            Direction after = car.getDirection();
+            switch (before) {
+                case RIGHT:
+                    assertEquals(Direction.DOWN, after);
+                    break;
+                case LEFT:
+                    assertEquals(Direction.UP, after);
+                    break;
+                case UP:
+                    assertEquals(Direction.RIGHT, after);
+                    break;
+                case DOWN:
+                    assertEquals(Direction.LEFT, after);
+                    break;
+            }
         }
     }
 
     @Test
     public void turnLeft() {
         Car car = new Volvo240();
-        Direction before = car.getDirection();
-        car.turnLeft();
-        Direction after = car.getDirection();
-        switch (before) {
-            case RIGHT:
-                assertEquals(Direction.UP, after);
-                break;
-            case LEFT:
-                assertEquals(Direction.DOWN, after);
-                break;
-            case UP:
-                assertEquals(Direction.LEFT, after);
-                break;
-            case DOWN:
-                assertEquals(Direction.RIGHT, after);
-                break;
+        for (int i = 0; i < Direction.values().length; i++) {
+            Direction before = car.getDirection();
+            car.turnLeft();
+            Direction after = car.getDirection();
+            switch (before) {
+                case RIGHT:
+                    assertEquals(Direction.UP, after);
+                    break;
+                case LEFT:
+                    assertEquals(Direction.DOWN, after);
+                    break;
+                case UP:
+                    assertEquals(Direction.LEFT, after);
+                    break;
+                case DOWN:
+                    assertEquals(Direction.RIGHT, after);
+                    break;
+            }
         }
     }
 
