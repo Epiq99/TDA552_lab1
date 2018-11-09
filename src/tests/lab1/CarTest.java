@@ -2,6 +2,7 @@ package lab1;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import java.awt.Color;
 import org.junit.Test;
 
 public class CarTest {
@@ -121,14 +122,22 @@ public class CarTest {
 
     @Test
     public void setColor() {
+        Car car = new Volvo240();
+        Color color = Color.ORANGE;
+        car.setColor(color);
+        assertEquals(color, car.getColor());
     }
 
     @Test
     public void getEnginePower() {
+
     }
 
     @Test
     public void getCurrentSpeed() {
+        Car car = new Volvo240();
+        car.startEngine(); //sets the speed to Car.DEFAULT_SPEED
+        assertEquals(0, Double.compare(Car.DEFAULT_SPEED, car.getCurrentSpeed()));
     }
 
     @Test
