@@ -1,41 +1,45 @@
 package lab1;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import java.awt.Color;
 import org.junit.Test;
-import java.awt.*;
 
 public class Saab95Test {
 
     @Test
     public void Saab95() {
-        Car saab = new Saab95();
+        Saab95 saab = new Saab95();
         assertEquals("Saab95", saab.getModelName());
+
+        //TODO should this use static variables for the engine power and number of doors?
         assertEquals(0, Double.compare(125.0, saab.getEnginePower()));
-        assertEquals( 2, saab.getNDoors());
-        assertTrue(Color.RED == saab.getColor());
-        assertFalse(((Saab95) saab).isTurboOn());
+        assertEquals(2, saab.getNDoors());
+        assertSame(Color.RED, saab.getColor());
+        assertFalse(saab.isTurboOn());
     }
 
     @Test
     public void setTurboOn() {
-        Car saab = new Saab95();
-        ((Saab95) saab).setTurboOn();
-        assertTrue(((Saab95) saab).isTurboOn());
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        assertTrue(saab.isTurboOn());
     }
 
     @Test
     public void setTurboOff() {
-        Car saab = new Saab95();
-        ((Saab95) saab).setTurboOff();
-        assertFalse(((Saab95) saab).isTurboOn());
+        Saab95 saab = new Saab95();
+        saab.setTurboOff();
+        assertFalse(saab.isTurboOn());
     }
 
     @Test
     public void getSpeedFactor() {
-        Car saab = new Saab95();
+        Saab95 saab = new Saab95();
         double turbo = 1;
-        if (((Saab95) saab).isTurboOn()) {
+        if (saab.isTurboOn()) {
             turbo = 1.3;
         }
         double ans = saab.getEnginePower() * 0.01 * turbo;
@@ -46,6 +50,6 @@ public class Saab95Test {
     public void isTurboOn() {
         Saab95 saab95 = new Saab95();
         saab95.setTurboOn();
-        assertTrue(true == saab95.isTurboOn());
+        assertTrue(saab95.isTurboOn());
     }
 }
