@@ -3,8 +3,6 @@ package lab1;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import sun.rmi.runtime.NewThreadAction;
-
 import java.awt.*;
 
 public class Saab95Test {

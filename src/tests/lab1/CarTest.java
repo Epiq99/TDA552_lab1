@@ -1,17 +1,25 @@
 package lab1;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class CarTest {
 
     @Test
+    public void Car() {
+
+    }
+
+    @Test
     public void getSpeedFactor() {
+
     }
 
     @Test
     public void move() {
         Car car = new Saab95();
+
         car.startEngine();
         double speed = car.getCurrentSpeed();
         int beforeX = car.getX();
@@ -78,18 +86,37 @@ public class CarTest {
 
     @Test
     public void startEngine() {
+        Car car = new Volvo240();
+        car.startEngine();
+        double speed = car.getCurrentSpeed();
+        assertEquals(0, Double.compare(Car.DEFAULT_SPEED, speed));
     }
 
     @Test
     public void stopEngine() {
+        Car car = new Volvo240();
+        car.startEngine();
+        car.gas(Car.DEFAULT_SPEED);
+        car.stopEngine();
+        assertEquals(0, Double.compare(car.getCurrentSpeed(), 0));
     }
 
     @Test
     public void gas() {
+        Car car = new Volvo240();
+        double amount = 0.2;
+        double expected = car.getCurrentSpeed() + (car.getSpeedFactor() * amount);
+        car.gas(amount);
+        assertEquals(0, Double.compare(expected, car.getCurrentSpeed()));
     }
 
     @Test
     public void brake() {
+        Car car = new Volvo240();
+        double amount = 0.2;
+        double expected = car.getCurrentSpeed() - (car.getSpeedFactor() * amount);
+        car.brake(amount);
+        assertEquals(0, Double.compare(expected, car.getCurrentSpeed()));
     }
 
     @Test
@@ -114,5 +141,10 @@ public class CarTest {
 
     @Test
     public void getColor() {
+    }
+
+    @Test
+    public void getDirection() {
+
     }
 }

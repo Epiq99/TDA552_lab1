@@ -13,6 +13,11 @@ import java.awt.Color;
  */
 public abstract class Car implements Movable {
 
+    /**
+     * The value that is assigned as the speed when the engine is started.
+     */
+    public final static double DEFAULT_SPEED = 0.1;
+
     private final int nDoors;
     private final double enginePower;
     private double currentSpeed;
@@ -109,7 +114,7 @@ public abstract class Car implements Movable {
      * after calling this method.
      */
     public void startEngine() {
-        currentSpeed = 0.1;
+        currentSpeed = DEFAULT_SPEED;
     }
 
     /**
