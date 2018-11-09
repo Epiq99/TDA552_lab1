@@ -47,9 +47,6 @@ public abstract class Car implements Movable {
      */
     public abstract double getSpeedFactor();
 
-    /**
-     * @inheritDoc
-     */
     @Override
     public void move() {
         switch (direction) {
@@ -68,9 +65,6 @@ public abstract class Car implements Movable {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
     @Override
     public void turnRight() {
         switch (direction) {
@@ -89,9 +83,6 @@ public abstract class Car implements Movable {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
     @Override
     public void turnLeft() {
         switch (direction) {

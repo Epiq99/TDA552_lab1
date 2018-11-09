@@ -19,9 +19,6 @@ public class Volvo240 extends Car {
         setColor(Color.BLACK);
     }
 
-    /**
-     * @inheritDoc
-     */
     @Override
     public double getSpeedFactor() {
         return getEnginePower() * 0.01 * TRIM_FACTOR;

@@ -31,9 +31,6 @@ public class Saab95 extends Car {
         turboOn = false;
     }
 
-    /**
-     * @inheritDoc
-     */
     @Override
     public double getSpeedFactor() {
         double turbo = 1;
