@@ -4,6 +4,7 @@ import static lab1.Direction.DOWN;
 import static lab1.Direction.LEFT;
 import static lab1.Direction.RIGHT;
 import static lab1.Direction.UP;
+
 import java.awt.Color;
 
 /**
@@ -16,7 +17,7 @@ public abstract class Car implements Movable {
     /**
      * The value that is assigned as the speed when the engine is started.
      */
-    public final static double DEFAULT_SPEED = 0.1;
+    public static final double DEFAULT_SPEED = 0.1;
 
     private final int nDoors;
     private final double enginePower;
@@ -251,5 +252,4 @@ public abstract class Car implements Movable {
     public Direction getDirection() {
         return direction;
     }
-
 }

@@ -44,7 +44,7 @@ public class Saab95 extends Car {
     }
 
     /**
-     *  Returns a boolean indicating if the current Turbo state.
+     * Returns a boolean indicating if the current Turbo state.
      *
      * @return a boolean indicating if Turbo is on.
      */

@@ -3,6 +3,7 @@ package lab1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
+
 import java.awt.Color;
 import org.junit.Test;
 

@@ -1,11 +1,10 @@
 package lab1;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
-import org.junit.Assert;
+import java.awt.Color;
 import org.junit.Test;
-
-import java.awt.*;
 
 public class Volvo240Test {
 
@@ -15,7 +14,7 @@ public class Volvo240Test {
         assertEquals("Volvo240", volvo240.getModelName());
         assertEquals(0, Double.compare(100.0, volvo240.getEnginePower()));
         assertEquals(4, volvo240.getNDoors());
-        assertTrue(Color.BLACK == volvo240.getColor());
+        assertSame(Color.BLACK, volvo240.getColor());
     }
 
     @Test

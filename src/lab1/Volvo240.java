@@ -12,7 +12,7 @@ public class Volvo240 extends Car {
     /**
      * Affects the speed factor of the car.
      */
-    private final static double TRIM_FACTOR = 1.25;
+    private static final double TRIM_FACTOR = 1.25;
 
     public Volvo240() {
         super("Volvo240", 100, 4);

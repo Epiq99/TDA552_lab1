@@ -25,5 +25,4 @@ public interface Movable {
      * @see Direction
      */
     void turnLeft();
-
 }
