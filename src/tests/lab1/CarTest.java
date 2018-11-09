@@ -1,7 +1,8 @@
 package lab1;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
 import java.awt.Color;
 import org.junit.Test;
 
@@ -10,8 +11,8 @@ public class CarTest {
     @Test
     public void Car() {
         Car car = new Saab95();
-        assertTrue(car.getDirection() == Direction.UP);
-        assertTrue(0 == Double.compare(0.0, car.getCurrentSpeed()));
+        assertSame(car.getDirection(), Direction.UP);
+        assertEquals(0, Double.compare(0.0, car.getCurrentSpeed()));
     }
 
     @Test
@@ -134,10 +135,29 @@ public class CarTest {
 
     @Test
     public void getColor() {
+        Car car = new Volvo240();
+        Color color = Color.ORANGE;
+        car.setColor(color);
+        assertEquals(color, car.getColor());
     }
 
     @Test
-    public void getDirection() {
+    public void getDirection() { //TODO might no be a very good test
+        Car car = new Volvo240();
+        boolean foundValue = false;
 
+        //Ensures that the getDirection always returns a Direction
+        for (int i = 0; i < Direction.values().length; i++) {
+            car.turnRight();
+            for (Direction d : Direction.values()) {
+                foundValue = car.getDirection() == d;
+                if (foundValue) {
+                    break;
+                }
+            }
+            if (!foundValue) {
+                fail("Did not find a Direction value!");
+            }
+        }
     }
 }
