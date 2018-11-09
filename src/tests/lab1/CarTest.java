@@ -8,7 +8,9 @@ public class CarTest {
 
     @Test
     public void Car() {
-
+        Car car = new Saab95();
+        assertTrue(car.getDirection() == Direction.UP);
+        assertTrue(0 == Double.compare(0.0, car.getCurrentSpeed()));
     }
 
     @Test
