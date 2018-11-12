@@ -18,6 +18,33 @@ public class Volvo240Test {
     }
 
     @Test
+    public void stopEngine() {
+        Volvo240 volvo = new Volvo240();
+        volvo.startEngine();
+        volvo.gas(Car.DEFAULT_SPEED);
+        volvo.stopEngine();
+        assertEquals(0, Double.compare(volvo.getCurrentSpeed(), 0));
+    }
+
+    @Test
+    public void gas() {
+        Volvo240 volvo = new Volvo240();
+        double amount = 0.2;
+        double expected = volvo.getCurrentSpeed() + (volvo.getSpeedFactor() * amount);
+        volvo.gas(amount);
+        assertEquals(0, Double.compare(expected, volvo.getCurrentSpeed()));
+    }
+
+    @Test
+    public void brake() {
+        Volvo240 volvo = new Volvo240();
+        double amount = 0.2;
+        double expected = volvo.getCurrentSpeed() - (volvo.getSpeedFactor() * amount);
+        volvo.brake(amount);
+        assertEquals(0, Double.compare(expected, volvo.getCurrentSpeed()));
+    }
+
+    @Test
     public void getSpeedFactor() {
         Volvo240 volvo240 = new Volvo240();
         double ans = volvo240.getEnginePower() * 0.01 * 1.25;

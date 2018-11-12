@@ -6,19 +6,32 @@ import static org.junit.Assert.fail;
 
 import java.awt.Color;
 import org.junit.Test;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CarTest {
 
+    private class TestingCar extends Car {
+
+        private TestingCar() {
+            super("TEST", -1, -1);
+        }
+
+        @Override
+        public double getSpeedFactor() {
+            throw new NotImplementedException();
+        }
+    }
+
     @Test
     public void Car() {
-        Car car = new Saab95();
+        Car car = new TestingCar();
         assertSame(car.getDirection(), Direction.UP);
         assertEquals(0, Double.compare(0.0, car.getCurrentSpeed()));
     }
 
     @Test
     public void move() {
-        Car car = new Saab95();
+        Car car = new TestingCar();
 
         car.startEngine();
         double speed = car.getCurrentSpeed();
@@ -38,7 +51,7 @@ public class CarTest {
 
     @Test
     public void turnRight() {
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         for (int i = 0; i < Direction.values().length; i++) {
             Direction before = car.getDirection();
             car.turnRight();
@@ -62,7 +75,7 @@ public class CarTest {
 
     @Test
     public void turnLeft() {
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         for (int i = 0; i < Direction.values().length; i++) {
             Direction before = car.getDirection();
             car.turnLeft();
@@ -86,42 +99,15 @@ public class CarTest {
 
     @Test
     public void startEngine() {
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         car.startEngine();
         double speed = car.getCurrentSpeed();
         assertEquals(0, Double.compare(Car.DEFAULT_SPEED, speed));
     }
 
     @Test
-    public void stopEngine() {
-        Car car = new Volvo240();
-        car.startEngine();
-        car.gas(Car.DEFAULT_SPEED);
-        car.stopEngine();
-        assertEquals(0, Double.compare(car.getCurrentSpeed(), 0));
-    }
-
-    @Test
-    public void gas() {
-        Car car = new Volvo240();
-        double amount = 0.2;
-        double expected = car.getCurrentSpeed() + (car.getSpeedFactor() * amount);
-        car.gas(amount);
-        assertEquals(0, Double.compare(expected, car.getCurrentSpeed()));
-    }
-
-    @Test
-    public void brake() {
-        Car car = new Volvo240();
-        double amount = 0.2;
-        double expected = car.getCurrentSpeed() - (car.getSpeedFactor() * amount);
-        car.brake(amount);
-        assertEquals(0, Double.compare(expected, car.getCurrentSpeed()));
-    }
-
-    @Test
     public void setColor() {
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         Color color = Color.ORANGE;
         car.setColor(color);
         assertEquals(color, car.getColor());
@@ -129,14 +115,14 @@ public class CarTest {
 
     @Test
     public void getCurrentSpeed() {
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         car.startEngine(); //sets the speed to Car.DEFAULT_SPEED
         assertEquals(0, Double.compare(Car.DEFAULT_SPEED, car.getCurrentSpeed()));
     }
 
     @Test
     public void getColor() {
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         Color color = Color.ORANGE;
         car.setColor(color);
         assertEquals(color, car.getColor());
@@ -144,7 +130,7 @@ public class CarTest {
 
     @Test
     public void getDirection() { //TODO might no be a very good test
-        Car car = new Volvo240();
+        Car car = new TestingCar();
         boolean foundValue = false;
 
         //Ensures that the getDirection always returns a Direction

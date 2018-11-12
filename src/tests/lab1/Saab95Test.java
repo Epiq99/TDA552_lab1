@@ -23,6 +23,33 @@ public class Saab95Test {
     }
 
     @Test
+    public void stopEngine() {
+        Saab95 saab = new Saab95();
+        saab.startEngine();
+        saab.gas(Car.DEFAULT_SPEED);
+        saab.stopEngine();
+        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0));
+    }
+
+    @Test
+    public void gas() {
+        Saab95 saab = new Saab95();
+        double amount = 0.2;
+        double expected = saab.getCurrentSpeed() + (saab.getSpeedFactor() * amount);
+        saab.gas(amount);
+        assertEquals(0, Double.compare(expected, saab.getCurrentSpeed()));
+    }
+
+    @Test
+    public void brake() {
+        Saab95 saab = new Saab95();
+        double amount = 0.2;
+        double expected = saab.getCurrentSpeed() - (saab.getSpeedFactor() * amount);
+        saab.brake(amount);
+        assertEquals(0, Double.compare(expected, saab.getCurrentSpeed()));
+    }
+
+    @Test
     public void setTurboOn() {
         Saab95 saab = new Saab95();
         saab.setTurboOn();
@@ -49,8 +76,8 @@ public class Saab95Test {
 
     @Test
     public void isTurboOn() {
-        Saab95 saab95 = new Saab95();
-        saab95.setTurboOn();
-        assertTrue(saab95.isTurboOn());
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        assertTrue(saab.isTurboOn());
     }
 }
