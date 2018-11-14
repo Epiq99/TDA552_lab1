@@ -10,12 +10,27 @@ import java.awt.Color;
 public class Volvo240 extends Car {
 
     /**
+     * The model name for the <code>Volvo240</code> class.
+     */
+    private static final String MODEL_NAME = "Volvo240";
+
+    /**
      * Affects the speed factor of the car.
      */
     private static final double TRIM_FACTOR = 1.25;
 
+    /**
+     * The engine power value for all instances of <code>Volvo240</code>.
+     */
+    private static final int ENGINE_POWER = 100;
+
+    /**
+     * The number of doors for all instances of <code>Volvo240</code>.
+     */
+    private static final int NUMBER_OF_DOORS = 4;
+
     public Volvo240() {
-        super("Volvo240", 100, 4);
+        super(MODEL_NAME, ENGINE_POWER, NUMBER_OF_DOORS);
         setColor(Color.BLACK);
     }
 

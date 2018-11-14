@@ -17,7 +17,7 @@ public class Saab95Test {
 
         //TODO should this use static variables for the engine power and number of doors?
         assertEquals(0, Double.compare(125.0, saab.getEnginePower()));
-        assertEquals(2, saab.getNDoors());
+        assertEquals(2, saab.getNumberOfDoors());
         assertSame(Color.RED, saab.getColor());
         assertFalse(saab.isTurboOn());
     }

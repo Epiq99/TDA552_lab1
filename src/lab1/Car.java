@@ -183,6 +183,24 @@ public abstract class Car implements Movable {
     }
 
     /**
+     * Returns the X-coordinate for this car.
+     *
+     * @return a int representing the X-coordinate for this car.
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
+     * Returns the Y-coordinate for this car.
+     *
+     * @return a int representing the Y-coordinate for this car.
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
      * Returns the number of doors on this car.
      *
      * @return an int representing the number of doors on this car.
@@ -207,33 +225,6 @@ public abstract class Car implements Movable {
      */
     public Color getColor() {
         return color;
-    }
-
-    /**
-     * Returns the number of doors on this car.
-     *
-     * @return a int representing the number of doors on the car.
-     */
-    public int getNDoors() {
-        return nDoors;
-    }
-
-    /**
-     * Returns the X-coordinate for this car.
-     *
-     * @return a int representing the X-coordinate for this car.
-     */
-    public int getX() {
-        return x;
-    }
-
-    /**
-     * Returns the Y-coordinate for this car.
-     *
-     * @return a int representing the Y-coordinate for this car.
-     */
-    public int getY() {
-        return y;
     }
 
     /**

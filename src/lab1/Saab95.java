@@ -9,10 +9,24 @@ import java.awt.Color;
  */
 public class Saab95 extends Car {
 
+    /**
+     * The model name for the <code>Volvo240</code> class.
+     */
+    private static final String MODEL_NAME = "Saab95";
+
+    /**
+     * The engine power value for all instances of <code>Saab95</code>.
+     */
+    private static final int ENGINE_POWER = 125;
+
+    /**
+     * The number of doors for all instances of <code>Saab95</code>.
+     */
+    private static final int NUMBER_OF_DOORS = 2;
     private boolean turboOn;
 
     public Saab95() {
-        super("Saab95", 125, 2);
+        super(MODEL_NAME, ENGINE_POWER, NUMBER_OF_DOORS);
         setColor(Color.RED);
         turboOn = false;
     }
