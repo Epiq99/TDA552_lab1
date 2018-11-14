@@ -10,6 +10,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CarTest {
 
+    /**
+     * A dummy class, used to the the functionality of the abstract class <code>Car</code>.
+     */
     private class TestingCar extends Car {
 
         private TestingCar() {
@@ -18,7 +21,7 @@ public class CarTest {
 
         @Override
         public double getSpeedFactor() {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); //this method is tested by the "real" subclasses
         }
     }
 

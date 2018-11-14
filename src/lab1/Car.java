@@ -19,10 +19,11 @@ public abstract class Car implements Movable {
      */
     public static final double DEFAULT_SPEED = 0.1;
 
-    private final int nDoors;
     private final double enginePower;
+    private final int nDoors;
     private double currentSpeed;
-    private int x, y;
+    private int x;
+    private int y;
     private final String modelName;
     private Direction direction;
     private Color color;
