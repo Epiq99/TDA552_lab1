@@ -29,6 +29,9 @@ public class Volvo240 extends Car {
      */
     private static final int NUMBER_OF_DOORS = 4;
 
+    /**
+     * Creates a new instance of the <code>Volvo240</code> class.
+     */
     public Volvo240() {
         super(MODEL_NAME, ENGINE_POWER, NUMBER_OF_DOORS);
         setColor(Color.BLACK);
