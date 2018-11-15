@@ -1,11 +1,10 @@
 package lab1;
 
+import static java.lang.Double.compare;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.toDegrees;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
 
 import java.awt.Color;
 import org.junit.Test;
@@ -44,16 +43,12 @@ public class CarTest {
         int deg = car.getDirection();
         int beforeX = car.getX();
         int beforeY = car.getY();
-
-        int expectedX = (int) (beforeX + speed * toDegrees(cos(deg)));
-        int expectedY = (int) (beforeY + speed * toDegrees(sin(deg)));
-
+        int expectedX = (int) (beforeX + (speed * toDegrees(cos(deg))));
+        int expectedY = (int) (beforeY + (speed * toDegrees(sin(deg))));
         car.move();
-        int afterX = car.getX();
-        int afterY = car.getY();
 
-        assertEquals(expectedX, afterX);
-        assertEquals(expectedY, afterY);
+        assertEquals(expectedX, car.getX());
+        assertEquals(expectedY, car.getY());
     }
 
     @Test
@@ -85,7 +80,7 @@ public class CarTest {
         Car car = new TestingCar();
         car.startEngine();
         double speed = car.getCurrentSpeed();
-        assertEquals(0, Double.compare(Car.DEFAULT_SPEED, speed));
+        assertEquals(0, compare(Car.DEFAULT_SPEED, speed));
     }
 
     @Test
@@ -100,7 +95,7 @@ public class CarTest {
     public void getCurrentSpeed() {
         Car car = new TestingCar();
         car.startEngine(); //sets the speed to Car.DEFAULT_SPEED
-        assertEquals(0, Double.compare(Car.DEFAULT_SPEED, car.getCurrentSpeed()));
+        assertEquals(0, compare(Car.DEFAULT_SPEED, car.getCurrentSpeed()));
     }
 
     @Test
@@ -112,7 +107,7 @@ public class CarTest {
     }
 
     @Test
-    public void getDirection() { //TODO might no be a very good test
+    public void getDirection() {
         Car car = new TestingCar();
         int temp = car.getDirection();
         car.turnLeft();

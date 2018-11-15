@@ -1,7 +1,6 @@
 package lab1;
 
 import static java.lang.Math.cos;
-import static java.lang.Math.floorDiv;
 import static java.lang.Math.sin;
 import static java.lang.Math.toDegrees;
 
@@ -19,12 +18,17 @@ public abstract class Car implements Movable {
      */
     public static final double DEFAULT_SPEED = 0.1;
 
+    /**
+     * The amount of degrees that that a car will rotate when turning either right or left.
+     */
+    private static final int ROTATION_STEP_SIZE = 5;
+
     private final double enginePower;
     private final int nDoors;
     private double currentSpeed;
+    private int deg;
     private int x;
     private int y;
-    private int deg;
     private final String modelName;
     private Color color;
 
@@ -48,7 +52,6 @@ public abstract class Car implements Movable {
      */
     public abstract double getSpeedFactor();
 
-    //TODO need to calculate a CustomVector using a specified degree value
     @Override
     public void move() {
         if (currentSpeed > 0) {
@@ -61,7 +64,7 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnRight() {
-        deg -= 5;
+        deg -= ROTATION_STEP_SIZE;
         if (deg < 0) {
             deg += 360;
         }
@@ -69,7 +72,7 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnLeft() {
-        deg += 5;
+        deg += ROTATION_STEP_SIZE;
         if (deg >= 360) {
             deg -= 360;
         }
@@ -96,7 +99,13 @@ public abstract class Car implements Movable {
      * @param amount a value used to determine the intensity of the acceleration.
      */
     public void gas(double amount) {
-        incrementSpeed(amount); // TODO fix this method according to lab pm
+<<<<<<< HEAD
+        if (amount >= 0 && amount <= 1.0) {
+            incrementSpeed(amount); // TODO fix this method according to lab pm
+        }
+=======
+        incrementSpeed(amount);
+>>>>>>> 0af4ff6ab975bc5fa0d2acca222e8d37a342ed00
     }
 
     /**
@@ -105,7 +114,13 @@ public abstract class Car implements Movable {
      * @param amount value used to determine the intensity of the deceleration.
      */
     public void brake(double amount) {
-        decrementSpeed(amount); // TODO fix this method according to lab pm
+<<<<<<< HEAD
+        if (amount >= 0 && amount <= 1.0) {
+            decrementSpeed(amount); // TODO fix this method according to lab pm
+        }
+=======
+        decrementSpeed(amount);
+>>>>>>> 0af4ff6ab975bc5fa0d2acca222e8d37a342ed00
     }
 
     /**
@@ -116,6 +131,9 @@ public abstract class Car implements Movable {
      */
     private void incrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() + (getSpeedFactor() * amount);
+        if (currentSpeed > enginePower) {
+            currentSpeed = enginePower;
+        }
     }
 
     /**
@@ -126,6 +144,9 @@ public abstract class Car implements Movable {
      */
     private void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - (getSpeedFactor() * amount);
+        if (currentSpeed < 0) {
+            currentSpeed = 0;
+        }
     }
 
     /**
@@ -182,6 +203,10 @@ public abstract class Car implements Movable {
         return nDoors;
     }
 
+    /**
+     * Returns the direction of this car, where 90 degrees represent a parallel direction compared to the y-axis
+     * @return an int representing the degree
+     */
     public int getDirection() {
         return deg;
     }
@@ -204,57 +229,3 @@ public abstract class Car implements Movable {
         return color;
     }
 }
-//        switch (direction) {
-//            case RIGHT:
-//                direction = UP;
-//                break;
-//            case LEFT:
-//                direction = DOWN;
-//                break;
-//            case UP:
-//                direction = LEFT;
-//                break;
-//            case DOWN:
-//                direction = RIGHT;
-//                break;
-//        }
-
-//right
-//        switch (direction) {
-//            case RIGHT:
-//                direction = DOWN;
-//                break;
-//            case LEFT:
-//                direction = UP;
-//                break;
-//            case UP:
-//                direction = RIGHT;
-//                break;
-//            case DOWN:
-//                direction = LEFT;
-//                break;
-//        }
-
-//        switch (direction) {
-//            case RIGHT:
-//                x += currentSpeed;
-//                break;
-//            case LEFT:
-//                x -= currentSpeed;
-//                break;
-//            case UP:
-//                y -= currentSpeed;
-//                break;
-//            case DOWN:
-//                y += currentSpeed;
-//                break;
-//        }
-
-//    /**
-//     * Returns the current direction for this car.
-//     *
-//     * @return a <code>Direction</code> representing the direction for the car.
-//     */
-//    public Direction getDirection() {
-//        return direction;
-//    }

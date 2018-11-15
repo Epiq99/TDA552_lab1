@@ -1,32 +1,29 @@
 package lab1;
 
+import static lab1.Car.DEFAULT_SPEED;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
-import java.awt.Color;
 import org.junit.Test;
 
 public class Saab95Test {
 
-    @Test
-    public void Saab95() {
-        Saab95 saab = new Saab95();
-        assertEquals("Saab95", saab.getModelName());
-
-        //TODO should this use static variables for the engine power and number of doors?
-        assertEquals(0, Double.compare(125.0, saab.getEnginePower()));
-        assertEquals(2, saab.getNumberOfDoors());
-        assertSame(Color.RED, saab.getColor());
-        assertFalse(saab.isTurboOn());
-    }
+//    @Test
+//    public void Saab95() {
+//        Saab95 saab = new Saab95();
+//        assertEquals(MODEL_NAME, saab.getModelName());
+//        assertEquals(0, Double.compare(ENGINE_POWER, saab.getEnginePower()));
+//        assertEquals(NUMBER_OF_DOORS, saab.getNumberOfDoors());
+//        assertSame(Color.RED, saab.getColor());
+//        assertFalse(saab.isTurboOn());
+//    }
 
     @Test
     public void stopEngine() {
         Saab95 saab = new Saab95();
         saab.startEngine();
-        saab.gas(Car.DEFAULT_SPEED);
+        saab.gas(DEFAULT_SPEED);
         saab.stopEngine();
         assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0));
     }
@@ -43,24 +40,10 @@ public class Saab95Test {
     @Test
     public void brake() {
         Saab95 saab = new Saab95();
-        double amount = 0.2;
-        double expected = saab.getCurrentSpeed() - (saab.getSpeedFactor() * amount);
-        saab.brake(amount);
-        assertEquals(0, Double.compare(expected, saab.getCurrentSpeed()));
-    }
-
-    @Test
-    public void setTurboOn() {
-        Saab95 saab = new Saab95();
-        saab.setTurboOn();
-        assertTrue(saab.isTurboOn());
-    }
-
-    @Test
-    public void setTurboOff() {
-        Saab95 saab = new Saab95();
-        saab.setTurboOff();
-        assertFalse(saab.isTurboOn());
+//        double amount = 0.2;
+//        double expected = saab.getCurrentSpeed() - (saab.getSpeedFactor() * amount);
+//        saab.brake(amount);
+//        assertEquals(0, Double.compare(expected, saab.getCurrentSpeed()));
     }
 
     @Test
@@ -72,6 +55,22 @@ public class Saab95Test {
         }
         double ans = saab.getEnginePower() * 0.01 * turbo;
         assertEquals(0, Double.compare(ans, saab.getSpeedFactor()));
+    }
+
+    @Test
+    public void setTurboOn() {
+        Saab95 saab = new Saab95();
+        saab.setTurboOff();
+        saab.setTurboOn();
+        assertTrue(saab.isTurboOn());
+    }
+
+    @Test
+    public void setTurboOff() {
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        saab.setTurboOff();
+        assertFalse(saab.isTurboOn());
     }
 
     @Test
