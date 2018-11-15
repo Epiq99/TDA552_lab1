@@ -110,5 +110,8 @@ public class CarTest {
     @Test
     public void getDirection() { //TODO might no be a very good test
         Car car = new TestingCar();
+        int temp = car.getDirection();
+        car.turnLeft();
+        assertEquals((temp + 5), car.getDirection());
     }
 }
