@@ -99,14 +99,9 @@ public abstract class Car implements Movable {
      * @param amount a value used to determine the intensity of the acceleration.
      */
     public void gas(double amount) {
-<<<<<<< HEAD
         if (amount >= 0 && amount <= 1.0) {
-            incrementSpeed(amount); // TODO fix this method according to lab pm
+            incrementSpeed(amount);
         }
-        incrementSpeed(amount);
-=======
-        incrementSpeed(amount);
->>>>>>> 0af4ff6ab975bc5fa0d2acca222e8d37a342ed00
     }
 
     /**
@@ -115,14 +110,9 @@ public abstract class Car implements Movable {
      * @param amount value used to determine the intensity of the deceleration.
      */
     public void brake(double amount) {
-<<<<<<< HEAD
         if (amount >= 0 && amount <= 1.0) {
-            decrementSpeed(amount); // TODO fix this method according to lab pm
+            decrementSpeed(amount);
         }
-        decrementSpeed(amount);
-=======
-        decrementSpeed(amount);
->>>>>>> 0af4ff6ab975bc5fa0d2acca222e8d37a342ed00
     }
 
     /**
