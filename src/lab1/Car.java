@@ -1,6 +1,7 @@
 package lab1;
 
 import static java.lang.Math.cos;
+import static java.lang.Math.floorDiv;
 import static java.lang.Math.sin;
 import static java.lang.Math.toDegrees;
 
@@ -60,12 +61,18 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnRight() {
-        deg += 5;
+        deg -= 5;
+        if (deg < 0) {
+            deg += 360;
+        }
     }
 
     @Override
     public void turnLeft() {
-        deg -= 5;
+        deg += 5;
+        if (deg >= 360) {
+            deg -= 360;
+        }
     }
 
     /**
@@ -173,6 +180,10 @@ public abstract class Car implements Movable {
      */
     public int getNumberOfDoors() {
         return nDoors;
+    }
+
+    public int getDirection() {
+        return deg;
     }
 
     /**

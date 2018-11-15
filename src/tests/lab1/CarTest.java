@@ -55,49 +55,25 @@ public class CarTest {
     @Test
     public void turnRight() {
         Car car = new TestingCar();
-//        for (int i = 0; i < Direction.values().length; i++) {
-//            Direction before = car.getDirection();
-//            car.turnRight();
-//            Direction after = car.getDirection();
-//            switch (before) {
-//                case RIGHT:
-//                    assertEquals(Direction.DOWN, after);
-//                    break;
-//                case LEFT:
-//                    assertEquals(Direction.UP, after);
-//                    break;
-//                case UP:
-//                    assertEquals(Direction.RIGHT, after);
-//                    break;
-//                case DOWN:
-//                    assertEquals(Direction.LEFT, after);
-//                    break;
-//            }
-//        }
+        //The starting degree value is 0
+        for (int i = 0; i < (360 / 5); i++) {
+            if (i == 0) {
+                assertEquals((i * 5), car.getDirection());
+            } else {
+                assertEquals((360 - (i * 5)), car.getDirection());
+            }
+            car.turnRight();
+        }
     }
 
     @Test
     public void turnLeft() {
         Car car = new TestingCar();
-//        for (int i = 0; i < Direction.values().length; i++) {
-//            Direction before = car.getDirection();
-//            car.turnLeft();
-//            Direction after = car.getDirection();
-//            switch (before) {
-//                case RIGHT:
-//                    assertEquals(Direction.UP, after);
-//                    break;
-//                case LEFT:
-//                    assertEquals(Direction.DOWN, after);
-//                    break;
-//                case UP:
-//                    assertEquals(Direction.LEFT, after);
-//                    break;
-//                case DOWN:
-//                    assertEquals(Direction.RIGHT, after);
-//                    break;
-//            }
-//        }
+        //The starting degree value is 0
+        for (int i = 0; i < (360 / 5); i++) {
+            assertEquals((i * 5), car.getDirection());
+            car.turnLeft();
+        }
     }
 
     @Test
@@ -134,20 +110,5 @@ public class CarTest {
     @Test
     public void getDirection() { //TODO might no be a very good test
         Car car = new TestingCar();
-//        boolean foundValue = false;
-//
-//        //Ensures that the getDirection always returns a Direction
-//        for (int i = 0; i < Direction.values().length; i++) {
-//            car.turnRight();
-//            for (Direction d : Direction.values()) {
-//                foundValue = car.getDirection() == d;
-//                if (foundValue) {
-//                    break;
-//                }
-//            }
-//            if (!foundValue) {
-//                fail("Did not find a Direction value!");
-//            }
-//        }
     }
 }
