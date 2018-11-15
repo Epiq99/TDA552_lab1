@@ -46,7 +46,7 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * Returns the speed factor of this car, which is used when the car is moving.
+     * Returns the speed factor of this car, which affects the speed of this car.
      *
      * @return a double value representing the speed factor of this car.
      */
@@ -94,7 +94,8 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * Increases the speed of this car.
+     * Increases the speed of this car. Note that the method will only process parameter values
+     * in the interval [0, 1.0].
      *
      * @param amount a value used to determine the intensity of the acceleration.
      */
@@ -105,7 +106,8 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * Decreases the speed of this car.
+     * Decreases the speed of this car. Note that the method will only process parameter values
+     * in the interval [0, 1.0].
      *
      * @param amount value used to determine the intensity of the deceleration.
      */
@@ -117,7 +119,7 @@ public abstract class Car implements Movable {
 
     /**
      * Increments the speed of this car using it's current speed, speed factor and
-     * the specified double value.
+     * the specified value. The speed value is always found in the interval [0, enginePower].
      *
      * @param amount value used when incrementing the speed.
      */
@@ -130,7 +132,7 @@ public abstract class Car implements Movable {
 
     /**
      * Decrements the speed of this car using it's current speed, speed factor and
-     * the specified double value.
+     * the specified value. The speed value is always found in the interval [0, enginePower].
      *
      * @param amount value used when decrementing the speed.
      */
@@ -153,7 +155,7 @@ public abstract class Car implements Movable {
     /**
      * Returns the engine power of this car.
      *
-     * @return a double representing the engine power of this car.
+     * @return a <code>double</code> representing the engine power of this car.
      */
     public double getEnginePower() {
         return enginePower;
@@ -162,7 +164,7 @@ public abstract class Car implements Movable {
     /**
      * Returns the current speed of this car.
      *
-     * @return a double representing the current speed of this car.
+     * @return a <code>double</code> representing the current speed of this car.
      */
     public double getCurrentSpeed() {
         return currentSpeed;
@@ -171,7 +173,7 @@ public abstract class Car implements Movable {
     /**
      * Returns the X-coordinate for this car.
      *
-     * @return a int representing the X-coordinate for this car.
+     * @return a <code>int</code> representing the X-coordinate for this car.
      */
     public int getX() {
         return x;
@@ -189,7 +191,7 @@ public abstract class Car implements Movable {
     /**
      * Returns the number of doors on this car.
      *
-     * @return an int representing the number of doors on this car.
+     * @return an <code>int</code> representing the number of doors on this car.
      */
     public int getNumberOfDoors() {
         return nDoors;
@@ -197,7 +199,8 @@ public abstract class Car implements Movable {
 
     /**
      * Returns the direction of this car, where 90 degrees represent a parallel direction compared to the y-axis
-     * @return an int representing the degree
+     *
+     * @return an <code>int</code> representing the degree
      */
     public int getDirection() {
         return deg;
@@ -206,7 +209,7 @@ public abstract class Car implements Movable {
     /**
      * Returns the model name of this car.
      *
-     * @return a String representing the model name of this car.
+     * @return a <code>String</code> representing the model name of this car.
      */
     public String getModelName() {
         return modelName;

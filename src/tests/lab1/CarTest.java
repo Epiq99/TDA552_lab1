@@ -37,7 +37,9 @@ public class CarTest {
     @Test
     public void move() {
         Car car = new TestingCar();
-
+//        for (int i = 0; i < 20; i++) {
+//            car.turnLeft();
+//        }
         car.startEngine();
         double speed = car.getCurrentSpeed();
         int deg = car.getDirection();
