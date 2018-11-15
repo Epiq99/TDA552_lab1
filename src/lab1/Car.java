@@ -1,9 +1,8 @@
 package lab1;
 
-import static lab1.Direction.DOWN;
-import static lab1.Direction.LEFT;
-import static lab1.Direction.RIGHT;
-import static lab1.Direction.UP;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.toDegrees;
 
 import java.awt.Color;
 
@@ -24,8 +23,8 @@ public abstract class Car implements Movable {
     private double currentSpeed;
     private int x;
     private int y;
+    private int deg;
     private final String modelName;
-    private Direction direction;
     private Color color;
 
     /**
@@ -37,7 +36,7 @@ public abstract class Car implements Movable {
         this.modelName = modelName;
         this.enginePower = enginePower;
         this.nDoors = nDoors;
-        direction = UP;
+        deg = 0;
         stopEngine();
     }
 
@@ -48,58 +47,25 @@ public abstract class Car implements Movable {
      */
     public abstract double getSpeedFactor();
 
+    //TODO need to calculate a CustomVector using a specified degree value
     @Override
     public void move() {
-        switch (direction) {
-            case RIGHT:
-                x += currentSpeed;
-                break;
-            case LEFT:
-                x -= currentSpeed;
-                break;
-            case UP:
-                y -= currentSpeed;
-                break;
-            case DOWN:
-                y += currentSpeed;
-                break;
+        if (currentSpeed > 0) {
+            double dx = currentSpeed * toDegrees(cos(deg));
+            double dy = currentSpeed * toDegrees(sin(deg));
+            x += dx;
+            y += dy;
         }
     }
 
     @Override
     public void turnRight() {
-        switch (direction) {
-            case RIGHT:
-                direction = DOWN;
-                break;
-            case LEFT:
-                direction = UP;
-                break;
-            case UP:
-                direction = RIGHT;
-                break;
-            case DOWN:
-                direction = LEFT;
-                break;
-        }
+        deg += 5;
     }
 
     @Override
     public void turnLeft() {
-        switch (direction) {
-            case RIGHT:
-                direction = UP;
-                break;
-            case LEFT:
-                direction = DOWN;
-                break;
-            case UP:
-                direction = LEFT;
-                break;
-            case DOWN:
-                direction = RIGHT;
-                break;
-        }
+        deg -= 5;
     }
 
     /**
@@ -226,13 +192,58 @@ public abstract class Car implements Movable {
     public Color getColor() {
         return color;
     }
-
-    /**
-     * Returns the current direction for this car.
-     *
-     * @return a <code>Direction</code> representing the direction for the car.
-     */
-    public Direction getDirection() {
-        return direction;
-    }
 }
+//        switch (direction) {
+//            case RIGHT:
+//                direction = UP;
+//                break;
+//            case LEFT:
+//                direction = DOWN;
+//                break;
+//            case UP:
+//                direction = LEFT;
+//                break;
+//            case DOWN:
+//                direction = RIGHT;
+//                break;
+//        }
+
+//right
+//        switch (direction) {
+//            case RIGHT:
+//                direction = DOWN;
+//                break;
+//            case LEFT:
+//                direction = UP;
+//                break;
+//            case UP:
+//                direction = RIGHT;
+//                break;
+//            case DOWN:
+//                direction = LEFT;
+//                break;
+//        }
+
+//        switch (direction) {
+//            case RIGHT:
+//                x += currentSpeed;
+//                break;
+//            case LEFT:
+//                x -= currentSpeed;
+//                break;
+//            case UP:
+//                y -= currentSpeed;
+//                break;
+//            case DOWN:
+//                y += currentSpeed;
+//                break;
+//        }
+
+//    /**
+//     * Returns the current direction for this car.
+//     *
+//     * @return a <code>Direction</code> representing the direction for the car.
+//     */
+//    public Direction getDirection() {
+//        return direction;
+//    }
