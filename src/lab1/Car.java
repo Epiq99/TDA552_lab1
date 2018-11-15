@@ -96,7 +96,7 @@ public abstract class Car implements Movable {
      * @param amount a value used to determine the intensity of the acceleration.
      */
     public void gas(double amount) {
-        incrementSpeed(amount); // TODO fix this method according to lab pm
+        incrementSpeed(amount);
     }
 
     /**
@@ -105,7 +105,7 @@ public abstract class Car implements Movable {
      * @param amount value used to determine the intensity of the deceleration.
      */
     public void brake(double amount) {
-        decrementSpeed(amount); // TODO fix this method according to lab pm
+        decrementSpeed(amount);
     }
 
     /**

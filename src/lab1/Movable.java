@@ -11,18 +11,16 @@ public interface Movable {
     void move();
 
     /**
-     * Changes the direction of this <code>Movable</code> by turning one step to
+     * Changes the direction of this <code>Movable</code> by turning to
      * the right.
      *
-     * @see Direction
      */
     void turnRight();
 
     /**
-     * Changes the direction of this <code>Movable</code> by turning one step to
+     * Changes the direction of this <code>Movable</code> by turning to
      * the left.
      *
-     * @see Direction
      */
     void turnLeft();
 }
