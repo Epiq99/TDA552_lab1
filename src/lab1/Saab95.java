@@ -10,7 +10,7 @@ import java.awt.Color;
 public class Saab95 extends Car {
 
     /**
-     * The model name for the <code>Volvo240</code> class.
+     * The model name for the <code>Saab95</code> class.
      */
     private static final String MODEL_NAME = "Saab95";
 
@@ -25,6 +25,9 @@ public class Saab95 extends Car {
     private static final int NUMBER_OF_DOORS = 2;
     private boolean turboOn;
 
+    /**
+     * Creates a new instance of the <code>Saab95</code> class.
+     */
     public Saab95() {
         super(MODEL_NAME, ENGINE_POWER, NUMBER_OF_DOORS);
         setColor(Color.RED);
@@ -55,9 +58,9 @@ public class Saab95 extends Car {
     }
 
     /**
-     * Returns a boolean indicating if the current Turbo state.
+     * Returns a boolean indicating if the current turbo state.
      *
-     * @return a boolean indicating if Turbo is on.
+     * @return a boolean indicating if turbo is on.
      */
     public boolean isTurboOn() {
         return turboOn;
