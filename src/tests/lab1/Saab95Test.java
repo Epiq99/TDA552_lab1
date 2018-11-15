@@ -1,5 +1,6 @@
 package lab1;
 
+import static java.lang.Double.compare;
 import static lab1.Car.DEFAULT_SPEED;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -25,7 +26,7 @@ public class Saab95Test {
         saab.startEngine();
         saab.gas(DEFAULT_SPEED);
         saab.stopEngine();
-        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0));
+        assertEquals(0, compare(saab.getCurrentSpeed(), 0));
     }
 
     @Test
@@ -34,16 +35,23 @@ public class Saab95Test {
         double amount = 0.2;
         double expected = saab.getCurrentSpeed() + (saab.getSpeedFactor() * amount);
         saab.gas(amount);
-        assertEquals(0, Double.compare(expected, saab.getCurrentSpeed()));
+        assertEquals(0, compare(expected, saab.getCurrentSpeed()));
     }
 
     @Test
     public void brake() {
         Saab95 saab = new Saab95();
-//        double amount = 0.2;
-//        double expected = saab.getCurrentSpeed() - (saab.getSpeedFactor() * amount);
-//        saab.brake(amount);
-//        assertEquals(0, Double.compare(expected, saab.getCurrentSpeed()));
+        saab.startEngine();
+        saab.brake(1.0);
+        assertEquals(0, compare(0.0, saab.getCurrentSpeed()));
+
+        saab.startEngine();
+
+        //these parameter values should result in the brake()-method not doing anything
+        saab.brake(1.01);
+        saab.brake(-0.01);
+
+        assertEquals(0, compare(DEFAULT_SPEED, saab.getCurrentSpeed()));
     }
 
     @Test
@@ -54,7 +62,7 @@ public class Saab95Test {
             turbo = 1.3;
         }
         double ans = saab.getEnginePower() * 0.01 * turbo;
-        assertEquals(0, Double.compare(ans, saab.getSpeedFactor()));
+        assertEquals(0, compare(ans, saab.getSpeedFactor()));
     }
 
     @Test

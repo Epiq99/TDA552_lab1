@@ -27,12 +27,12 @@ public class CarTest {
         }
     }
 
-    @Test
-    public void Car() {
-        Car car = new TestingCar();
-//        assertSame(car.getDirection(), Direction.UP);
-//        assertEquals(0, Double.compare(0.0, car.getCurrentSpeed()));
-    }
+//    @Test
+//    public void Car() {
+//        Car car = new TestingCar();
+////        assertSame(car.getDirection(), Direction.UP);
+////        assertEquals(0, Double.compare(0.0, car.getCurrentSpeed()));
+//    }
 
     @Test
     public void move() {
