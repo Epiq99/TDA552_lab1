@@ -1,10 +1,12 @@
 package lab1;
 
 import static java.lang.Double.compare;
+import static lab1.Car.DEFAULT_SPEED;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
 import java.awt.Color;
+
 import org.junit.Test;
 
 public class Volvo240Test {
@@ -22,7 +24,7 @@ public class Volvo240Test {
     public void stopEngine() {
         Volvo240 volvo = new Volvo240();
         volvo.startEngine();
-        volvo.gas(Car.DEFAULT_SPEED);
+        volvo.gas(DEFAULT_SPEED);
         volvo.stopEngine();
         assertEquals(0, compare(volvo.getCurrentSpeed(), 0));
     }
@@ -38,11 +40,17 @@ public class Volvo240Test {
 
     @Test
     public void brake() {
-//        Volvo240 volvo = new Volvo240();
-//        double amount = 0.2;
-//        double expected = volvo.getCurrentSpeed() - (volvo.getSpeedFactor() * amount);
-//        volvo.brake(amount);
-//        assertEquals(0, compare(expected, volvo.getCurrentSpeed()));
+        Volvo240 volvo = new Volvo240();
+        volvo.startEngine();
+        volvo.brake(1.0);
+        assertEquals(0, compare(0, volvo.getCurrentSpeed()));
+
+        volvo.startEngine();
+
+        //these parameter values should result in the brake()-method not doing anything
+        volvo.brake(1.01);
+        volvo.brake(-0.1);
+        assertEquals(0, compare(DEFAULT_SPEED, volvo.getCurrentSpeed()));
     }
 
     @Test
