@@ -1,5 +1,8 @@
 package lab1;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.toDegrees;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
@@ -36,20 +39,21 @@ public class CarTest {
     public void move() {
         Car car = new TestingCar();
 
-//        car.startEngine();
-//        double speed = car.getCurrentSpeed();
-//        int beforeX = car.getX();
-//        int beforeY = car.getY();
-//
-//        int expectedX = (int) (beforeX + speed);
-//        int expectedY = (int) (beforeY + speed);
-//
-//        car.move();
-//        int afterX = car.getX();
-//        int afterY = car.getY();
-//
-//        assertEquals(expectedX, afterX);
-//        assertEquals(expectedY, afterY);
+        car.startEngine();
+        double speed = car.getCurrentSpeed();
+        int deg = car.getDirection();
+        int beforeX = car.getX();
+        int beforeY = car.getY();
+
+        int expectedX = (int) (beforeX + speed * toDegrees(cos(deg)));
+        int expectedY = (int) (beforeY + speed * toDegrees(sin(deg)));
+
+        car.move();
+        int afterX = car.getX();
+        int afterY = car.getY();
+
+        assertEquals(expectedX, afterX);
+        assertEquals(expectedY, afterY);
     }
 
     @Test
