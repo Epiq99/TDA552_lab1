@@ -182,6 +182,10 @@ public abstract class Car implements Movable {
         return nDoors;
     }
 
+    /**
+     * Returns the direction of this car, where 90 degrees represent a parallel direction compared to the y-axis
+     * @return an int representing the degree
+     */
     public int getDirection() {
         return deg;
     }
