@@ -10,6 +10,9 @@ import java.awt.Color;
 import org.junit.Test;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+/**
+ * The test class for the <code>Car</code> class.
+ */
 public class CarTest {
 
     /**

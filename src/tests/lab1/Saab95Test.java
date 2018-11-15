@@ -8,6 +8,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * The test class for the <code>Saab95</code> class.
+ */
 public class Saab95Test {
 
 //    @Test

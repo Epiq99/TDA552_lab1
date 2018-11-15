@@ -13,14 +13,12 @@ public interface Movable {
     /**
      * Changes the direction of this <code>Movable</code> by turning to
      * the right.
-     *
      */
     void turnRight();
 
     /**
      * Changes the direction of this <code>Movable</code> by turning to
      * the left.
-     *
      */
     void turnLeft();
 }
